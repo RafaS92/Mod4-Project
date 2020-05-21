@@ -15,7 +15,7 @@ gem 'puma', '~> 4.1'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.11'
-
+gem "pry"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -41,3 +41,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "faker", "~> 2.11"
+
+gem "unirest", "~> 1.1"
