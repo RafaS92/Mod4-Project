@@ -29,7 +29,6 @@ class Random extends Component {
   }
 
   render() {
-    console.log(this.state.products);
     return (
       <div>
         <ProductList products={this.state.products} />
