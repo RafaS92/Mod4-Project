@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
 
-    def create
+    # def create
 
-    end
+    # end
     
 end

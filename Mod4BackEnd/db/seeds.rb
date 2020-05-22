@@ -28,7 +28,7 @@ require "faker"
 # end
 
 
-# 10.times do
+# 75.times do
 #     Order.create({product_id: Product.all.sample.id ,cart_id: Cart.all.sample.id})
 # end
 
