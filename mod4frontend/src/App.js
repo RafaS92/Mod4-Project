@@ -1,8 +1,8 @@
+
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom'
 import { Route } from 'react-router'
-
-// import logo from "./logo.svg";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Login } from './components/Login';
 import Random from "./components/random";

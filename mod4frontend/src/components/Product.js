@@ -1,9 +1,15 @@
 import React, { Component } from "react";
+import Card from "./Card";
 
 export default function Product(props) {
-  return(
+
+  return (
     <div>
-      {props.product.title}
+      <Card
+        title={props.product.title}
+        description={props.product.description}
+      />
     </div>
-  )
+  );
+
 }
