@@ -6,7 +6,6 @@ class AuthenticationController < ApplicationController
             session[:user_id] = user.id
             render json: { success: true, id: user.id }
         else
-            byebug
             render json: { success: false, id: nil }
         end
     end

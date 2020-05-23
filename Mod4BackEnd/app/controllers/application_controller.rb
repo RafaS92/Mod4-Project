@@ -7,6 +7,7 @@ class ApplicationController < ActionController::API
     end
 
     def current_user
+        byebug
         Passenger.find(session[:user_id])
     end
 

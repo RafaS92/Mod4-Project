@@ -28,16 +28,6 @@ export function Login(props){
                 password: user.password
             })
         })
-        // .then(res => res.json())
-        // .then(p => {
-        //     // console.log(props, p)
-        //     if(p.success){
-        //         props.history.push('/home', id)
-        //         console.log(id)
-        //     }else{
-        //         alert("incorrect")
-        // }
-    // })
         let { success, id } = await response.json()
         if(success){
             props.history.push('/home', id)
