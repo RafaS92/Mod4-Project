@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch} from 'react-router-dom'
 import { Route } from 'react-router'
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Login } from './components/Login';
 import Random from "./components/random";
