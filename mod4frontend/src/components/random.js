@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ProductList from "./ProductList";
-import Header from './Header'
+import {Link} from 'react-router-dom'
 
 class Random extends Component {
   state = {
@@ -34,7 +34,7 @@ class Random extends Component {
   render() {
     return (
       <div>
-        <Header user_id={this.state.current_user_id}/>
+        <Link to={{pathname: '/cart',state: {current_user_id: this.state.current_user_id}}}>View my cart</Link>
         <ProductList products={this.state.products} />
         <h1>products</h1>
       </div>

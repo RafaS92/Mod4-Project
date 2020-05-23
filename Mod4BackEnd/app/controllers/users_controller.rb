@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    # before_action :create
+    before_action :define_current_user
 
     def create
         user = User.create({
@@ -9,7 +9,6 @@ class UsersController < ApplicationController
             address: params[:address],
             email: params[:email]
         })
-        # render json: user, include: [ :carts ]
         if user.valid?
             current_user = user
             session[:user_id] = user.id
@@ -21,28 +20,21 @@ class UsersController < ApplicationController
 
     def show
         # byebug
-        @current_user = User.find(params[:id])
-        render json: @current_user, include: [ :carts, :orders ]
-        # byebug
+        # @current_user = User.find(params[:id])
+        render json: @current_user, :include => [ :carts => {:include => [:orders => {:include => [:product]}]}]
     end
 
-    # def user_params
-    #     params.permit(:name)
-    # end
-    
-    # def define_current_user
-    #     # byebug
-    #     if params[:id]
-    #         @current_user = User.find(params[:id])
-    #         # byebug
-    #     else
-    #         @current_user = User.new
-    #     end
-    # end
-    
-    # def current_user
-    #     @current_user
-    #     byebug
-    # end
+    def define_current_user
+        if params[:id]
+            @current_user = User.find(params[:id])
+        # else
+        #     @current_user = Passenger.new
+        end
+    end
+
+    def current_user
+        @current_user
+        byebug
+    end
 
 end
