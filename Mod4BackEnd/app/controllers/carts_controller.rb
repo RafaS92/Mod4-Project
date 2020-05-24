@@ -5,7 +5,7 @@ class CartsController < ApplicationController
             user_id: params[:user_id]
         })
         user = User.find(params[:user_id])
-        render json: user
+        render json: user, :include => [ :carts => {:include => [:orders => {:include => [:product]}]}]
     end
 
     def show
