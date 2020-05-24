@@ -21,10 +21,9 @@ class Card extends Component {
             <button type="button" class="btn btn-primary mr-4">
               See more...
             </button>
-            <a class="btn btn-success" href="#">
-              <i class="icon-shopping-cart icon-large "></i> Checkout
+            <a class="btn btn-warning" href="#">
+              <i class="fas fa-cart-plus">Add to cart</i>
             </a>
-            <i class="fas fa-shopping-cart icon-large mr+5" />
           </div>
         </div>
       </div>
