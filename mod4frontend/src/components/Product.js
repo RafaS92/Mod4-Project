@@ -2,9 +2,11 @@ import React from "react";
 import Card from "./Card";
 
 export default function Product(props) {
+
   let base = props.product.images[0].base_url;
   let second = props.product.images[0].primary;
   let image = base + second;
+
 
   return (
     <div>
@@ -16,4 +18,5 @@ export default function Product(props) {
       />
     </div>
   );
+
 }
