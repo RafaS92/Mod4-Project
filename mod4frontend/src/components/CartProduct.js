@@ -1,11 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import Card from "./Card";
 
-export default function Product(props) {
+export default function CartProduct(props) {
 
-  let base = props.product.images[0].base_url;
-  let second = props.product.images[0].primary;
-  let image = base + second;
+    let image = props.product.image
 
   return (
     
