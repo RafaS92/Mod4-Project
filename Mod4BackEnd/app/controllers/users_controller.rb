@@ -9,6 +9,9 @@ class UsersController < ApplicationController
             address: params[:address],
             email: params[:email]
         })
+        Cart.create({
+            user_id: user.id
+        })
         if user.valid?
             current_user = user
             session[:user_id] = user.id
