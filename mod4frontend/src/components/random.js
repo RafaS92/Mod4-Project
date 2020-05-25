@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import ProductList from "./ProductList";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 class Random extends Component {
   state = {
     products: [],
-    current_user_id: this.props.location.state
+    current_user_id: this.props.location.state,
   };
-  
+
   // componentDidMount() {
   //   fetch(
   //     "https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search?sponsored=1&limit=50&offset=0&store_id=3991&keyword=Tv",
@@ -34,7 +34,14 @@ class Random extends Component {
   render() {
     return (
       <div>
-        <Link to={{pathname: '/cart',state: {current_user_id: this.state.current_user_id}}}>View my cart</Link>
+        <Link
+          to={{
+            pathname: "/cart",
+            state: { current_user_id: this.state.current_user_id },
+          }}
+        >
+          View my cart
+        </Link>
         <ProductList products={this.state.products} />
         <h1>products</h1>
       </div>
