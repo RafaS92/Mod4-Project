@@ -15,7 +15,7 @@ class App extends React.Component {
     return (
       <div>
        <NavBar />
-        <Random />
+        {/* <Random /> */}
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Login} />
