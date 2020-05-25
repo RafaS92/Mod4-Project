@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Card extends Component {
+class CardCart extends Component {
   render() {
     // console.log(this.props.price)
     // console.log(this.props.price.current_retail)
@@ -26,9 +26,9 @@ class Card extends Component {
             <button type="button" class="btn btn-primary mr-2">
               See more...
             </button>
-            <a class="btn btn-warning" href="#">
-              <i class="fas fa-cart-plus">Add to cart</i>
-            </a>
+            <button type="button" class="btn btn-danger mr-2 md-">
+              Remove
+            </button>
           </div>
         </div>
       </div>
@@ -36,4 +36,4 @@ class Card extends Component {
   }
 }
 
-export default Card;
+export default CardCart;
