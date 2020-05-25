@@ -2,10 +2,25 @@ import React from "react";
 import { Search } from "./Search";
 import {Login} from './Login'
 import {Link} from 'react-router-dom'
+import Checkout from './Checkout'
 
-export default function NavBar(props) {
+
+export default class NavBar extends React.Component {
+
+state={
+  current_user_id: this.props.current_user_id
+}
+
+
+
+render(){
+  // let current_cart = this.state.carts.length == 1 ?  this.state.carts[0] : this.state.carts.slice(-1)[0]
+  // console.log(this.props.carts)
   let categories=['iPads', 'Tablets', 'Speakers', 'Microphones', 'Cables', 'Mouses', 'Printers', 'Refrigerators', 'Antennas', 'USBs', 'SD Cards', 'PCs', 'Laptops', 'Phones', 'TVs', 'Chargers', 'Extension Cords', 'Stoves', 'Grills', 'Earphones', 'Headphones', 'Cameras', 'Remotes','Phone Cases', 'Laptop Cases', 'Kindles', 'Video Games', 'Smartwatches' ]
   let sorted= categories.sort((a,b) => (a.toLowerCase() > b.toLowerCase()) ? 1 : -1)
+
+  let user = this.props.current_user_id
+//  console.log(this.props)
   return (
     <nav className="navbar navbar-expand-lg  bg-dark">
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -48,19 +63,24 @@ export default function NavBar(props) {
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               {sorted.map(s=>(
-                 <a class="dropdown-item" onClick={()=> props.searchCategory(s)}>
+                 <a class="dropdown-item" onClick={()=> this.props.searchCategory(s)}>
                    {s}
                  </a>
               ) )}    
             </div>
           </li>
+          <Link to={{pathname: '/checkout',state: {user: user, cart: this.props.carts}}}>
           <li className="nav-item">
-            <a className="btn btn-success" href="#">
+            <a className="btn btn-success" onClick={()=>(
+              this.props.current_user_id ?  alert("hi") :
+              alert("Since you are not logged in, you can't checkout. Please log in.")
+            )}>
               <i className="fas fa-shopping-cart text-dark">Checkout</i>
             </a>
           </li>
+          </Link>
         </ul>
-        <Search searchItem={props.searchItem}/>
+        <Search searchItem={this.props.searchItem}/>
         {/* <form className="form-inline my-2 my-lg-0">
           <input
             className="form-control mr-sm-2"
@@ -78,4 +98,5 @@ export default function NavBar(props) {
       </div>
     </nav>
   );
+      }
 }

@@ -13,7 +13,7 @@ export class Category extends React.Component{
     })
     }
 onSubmit=()=>{
-    console.log(this.state)
+    // console.log(this.state)
     this.props.searchCategory(this.state.searchCategory)
 }
 

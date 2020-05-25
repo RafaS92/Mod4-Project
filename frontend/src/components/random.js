@@ -10,7 +10,9 @@ class Random extends Component {
     products: [],
     searchTerm: '',
     searchCategory:'',
-    current_user_id: this.props.location.state
+    current_user_id: this.props.location.state,
+    user:{},
+    carts:[]
   };
 
 searchItem=(e)=>{
@@ -22,7 +24,7 @@ searchItem=(e)=>{
  
 // Isaac
 searchCategory=(searchTerm)=>{
-  console.log(searchTerm)
+  // console.log(searchTerm)
 this.setState({
   searchCategory: searchTerm
 })
@@ -30,19 +32,18 @@ this.getItems(searchTerm)
 }
 
   
-// searchCategory=(e)=>{
-//   console.log(e)
-// this.setState({
-//   searchCategory: e.target.value
-// })
-// this.getItems()
-// }
+   getUser = ()=> {
+    fetch(`http://localhost:3000/users/${this.state.current_user_id}`)
+    .then(res=> res.json())
+    .then(user => (
+      this.setState({
+          carts: user.carts
+      })
+  ))
+}
 
 
-    // current_user_id: this.props.location.state
-  // };
 
-  
   componentDidMount() {
     // this.getItems()
   
@@ -98,19 +99,28 @@ this.getItems(searchTerm)
 
   render() {
 
+
   //   let check = this.state.products.find( product => product.title.toLowerCase().startsWith(this.state.searchTerm.toLowerCase()))
   let filteredProducts=[]
     if(this.state.products){
-      console.log(this.state.searchTerm)
-      console.log(this.state.searchCategory)
+      // console.log(this.state.searchTerm)
+      // console.log(this.state.searchCategory)
       filteredProducts= this.state.products.filter( product => product.title.toLowerCase().startsWith(this.state.searchTerm.toLowerCase()))
     }else{
       filteredProducts= [{name: 'No product'}]
     }
-    // // console.log(this.state.products);
+    // console.log(this.state.carts)
+    // console.log(this.props.location.state);
+    // console.log("user:", this.state.user)
+    // let user= this.props.location.state
+  if(this.props.location.state != undefined){
+    this.getUser()
+  } 
+
     return (
       <div>
-        <NavBar searchItem={this.searchItem} searchCategory={this.searchCategory}/>
+        <NavBar searchItem={this.searchItem} searchCategory={this.searchCategory}
+        current_user_id={this.props.location.state} carts={this.state.carts}/>
          {/* <Search searchItem={this.searchItem}
         //  getItems={this.getItems}
         /> */}

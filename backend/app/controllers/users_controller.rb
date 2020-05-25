@@ -22,7 +22,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        # byebug
+        @current_user
+
         # @current_user = User.find(params[:id])
         render json: @current_user, :include => [ :carts => {:include => [:orders => {:include => [:product]}]}]
     end
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
 
     def current_user
         @current_user
-        byebug
+        # byebug
     end
 
 end
