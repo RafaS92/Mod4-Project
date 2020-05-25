@@ -20,9 +20,9 @@ export default function NavBar() {
               Log in
             </a>
           </li>
-          <li className="nav-item dropdown">
+          <li class="nav-item dropdown">
             <a
-              className="nav-link dropdown-toggle"
+              class="nav-link dropdown-toggle"
               href="#"
               id="navbarDropdown"
               role="button"
@@ -32,15 +32,15 @@ export default function NavBar() {
             >
               Dropdown
             </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item" href="#">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">
                 Action
               </a>
-              <a className="dropdown-item" href="#">
+              <a class="dropdown-item" href="#">
                 Another action
               </a>
-              <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="#">
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
                 Something else here
               </a>
             </div>
