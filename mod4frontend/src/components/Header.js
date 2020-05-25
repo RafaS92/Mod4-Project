@@ -43,12 +43,6 @@ export default class Header extends Component{
 
     render(){
         let user = this.props.location.state.current_user_id
-        // if(this.state.carts.length < 1){
-        //     this.makeNewCart(user)
-        // }
-        // console.log(this.state.carts.length < 1)
-        // console.log()
-        // let current_cart = this.state.carts.slice(-1)[0]
         let current_cart = this.state.carts.length == 1 ?  this.state.carts[0] : this.state.carts.slice(-1)[0]
 
         let prevCarts = this.state.carts.slice(0, -1)
