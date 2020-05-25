@@ -32,7 +32,6 @@ class Random extends Component {
   }
 
   render() {
-    console.log(this.state.current_user_id)
     return (
       <div>
         <Link to={{pathname: '/cart',state: {current_user_id: this.state.current_user_id}}}>View my cart</Link>
