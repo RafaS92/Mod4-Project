@@ -4,6 +4,7 @@ import { BrowserRouter, Switch} from 'react-router-dom'
 import { Route } from 'react-router'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+
 import { Login } from "./components/Login";
 import Random from "./components/random";
 import NavBar from "./components/NavBar";
