@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import SignUp from './SignUp'
   
 export function Login(props){
@@ -7,6 +7,7 @@ export function Login(props){
         username: '',
         password: ''
     })
+
 
     let [ new_user, changeNewUser ] = useState({
         new_username: '',
@@ -28,9 +29,10 @@ export function Login(props){
                 password: user.password
             })
         })
-        let { success, id } = await response.json()
+        let { success, id, userr } = await response.json()
+        // console.log(success, id, user)
         if(success){
-            props.history.push('/home', id)
+            props.history.push('/home', id, userr)
         }else{
             alert("incorrect")
         }
