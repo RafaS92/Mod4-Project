@@ -23,7 +23,7 @@ class Card extends Component {
             <li class="list-group-item">OTHER STUFF</li>
           </ul>
           <div class="card-body">
-            <button type="button" class="btn btn-primary mr-4">
+            <button type="button" class="btn btn-primary mr-2">
               See more...
             </button>
             <a class="btn btn-warning" href="#">
