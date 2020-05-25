@@ -42,12 +42,25 @@ render(){
             </a>
           </li> */}
 
-          <Link to='/login'> <li className="nav-item">
+          
+          {this.props.current_user_id == undefined ? 
+
+          <Link to='/login'>
+             <li className="nav-item">
             <a className="nav-link">
              Login/Sign Up
             </a>
           </li>
           </Link>
+          : 
+          <li className="nav-item active">
+          <li className="nav-item">
+            <a className="nav-link" href="#">
+             Log Out
+            </a>
+          </li>
+          </li>
+}
 
          <li class="nav-item dropdown">
             <a

@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import Card from "./Card";
+import CardCart from "./CardCart";
 
 export default function CartProduct(props) {
-
-    let image = props.product.image
+  let image = props.product.image;
 
   return (
-    
     <div>
-      <Card
+      <CardCart
         title={props.product.title}
         description={props.product.description}
         image={image}
@@ -16,5 +14,4 @@ export default function CartProduct(props) {
       />
     </div>
   );
-
 }

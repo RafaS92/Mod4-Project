@@ -14,13 +14,16 @@ class Card extends Component {
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              Price:{this.props.price != null ? this.props.price.current_retail : this.props.price}
+              Price:
+              {this.props.price != null
+                ? this.props.price.current_retail
+                : this.props.price}
             </li>
             <li class="list-group-item">OTHER STUFF</li>
             <li class="list-group-item">OTHER STUFF</li>
           </ul>
           <div class="card-body">
-            <button type="button" class="btn btn-primary mr-4">
+            <button type="button" class="btn btn-primary mr-2">
               See more...
             </button>
             <a class="btn btn-warning" href="#">
