@@ -8,7 +8,8 @@ class Random extends Component {
   state = {
     products: [],
     searchTerm: '',
-    searchCategory:''
+    searchCategory:'',
+    current_user_id: this.props.location.state
   };
 
 searchItem=(e)=>{
@@ -36,9 +37,7 @@ this.getItems(searchTerm)
 // this.getItems()
 // }
 
-
-    current_user_id: this.props.location.state,
-  };
+  // };
 
   
   componentDidMount() {
@@ -70,7 +69,7 @@ this.getItems(searchTerm)
   getItems=(searchItem)=>{
     // console.log(searchItem)
     fetch(
-      `https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search?sponsored=1&limit=50&offset=0&store_id=3991&keyword=${searchItem}`
+      `https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search?sponsored=1&limit=50&offset=0&store_id=3991&keyword=${searchItem}`,
       {
         method: "GET",
         headers: {
@@ -113,22 +112,15 @@ this.getItems(searchTerm)
          <Category searchCategory={this.searchCategory}
          />
         <ProductList products={filteredProducts}/>
-    console.log(this.state.current_user_id)
 
-    return (
-      <div>
-        <Link
-          to={{
-            pathname: "/cart",
-            state: { current_user_id: this.state.current_user_id },
-          }}
-        >
+    {/* return ( */}
+      {/* <div></div> */}
+        <Link to={{pathname: "/cart", state: { current_user_id: this.state.current_user_id }}}>
           View my cart
         </Link>
-        <ProductList products={this.state.products} />
-        <h1>products</h1>
+        {/* <ProductList products={this.state.products} /> */}
       </div>
-    );
+    )
   }
 }
 
