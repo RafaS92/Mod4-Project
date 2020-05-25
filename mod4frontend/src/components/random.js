@@ -94,6 +94,7 @@ this.getItems(searchTerm)
   
 
   render() {
+
   //   let check = this.state.products.find( product => product.title.toLowerCase().startsWith(this.state.searchTerm.toLowerCase()))
   let filteredProducts=[]
     if(this.state.products){
@@ -113,6 +114,7 @@ this.getItems(searchTerm)
          />
         <ProductList products={filteredProducts}/>
     console.log(this.state.current_user_id)
+
     return (
       <div>
         <Link
