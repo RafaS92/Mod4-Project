@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import ProductList from "./ProductList";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 class Random extends Component {
   state = {
     products: [],
-    current_user_id: this.props.location.state
+    current_user_id: this.props.location.state,
   };
+
   
   componentDidMount() {
     fetch(
@@ -35,7 +36,14 @@ class Random extends Component {
     console.log(this.state.current_user_id)
     return (
       <div>
-        <Link to={{pathname: '/cart',state: {current_user_id: this.state.current_user_id}}}>View my cart</Link>
+        <Link
+          to={{
+            pathname: "/cart",
+            state: { current_user_id: this.state.current_user_id },
+          }}
+        >
+          View my cart
+        </Link>
         <ProductList products={this.state.products} />
         <h1>products</h1>
       </div>
