@@ -1,6 +1,7 @@
-import React from "react";
-import { BrowserRouter, Switch } from "react-router-dom";
-import { Route } from "react-router";
+
+import React from 'react';
+import { BrowserRouter, Switch} from 'react-router-dom'
+import { Route } from 'react-router'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Login } from "./components/Login";
@@ -13,8 +14,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBar />
-        <Random />
+       <NavBar />
+        {/* <Random /> */}
+
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Login} />
