@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import Cart from './Cart'
 import EditCart from './EditCart'
+import PrevCarts from './PrevCart'
 
 export default class Header extends Component{
 
@@ -64,11 +65,11 @@ export default class Header extends Component{
     }
 }
 
-const PrevCarts = (props) => (
-    <div>
-        <h1>Previous Carts</h1>
-        {props.carts.length == 0 ? <h3>You have no previous carts</h3> : props.carts.map(cart => (
-            <h3><Cart key={cart.id} cart={cart} orders={cart.orders}/></h3>
-        ))}
-    </div>
-)
+// const PrevCarts = (props) => (
+//     <div>
+//         <h1>Previous Carts</h1>
+//         {props.carts.length == 0 ? <h3>You have no previous carts</h3> : props.carts.map(cart => (
+//             <h3><Cart key={cart.id} cart={cart} orders={cart.orders}/></h3>
+//         ))}
+//     </div>
+// )

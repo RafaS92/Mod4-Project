@@ -1,23 +1,13 @@
 import React, { useState } from "react";
-import Cart from "./Cart";
+import EditCart from "./EditCart";
 import NavBar from './NavBar'
 
-export default function Checkout(props) {
+export default class Checkout extends React.Component {
 
-
-    let user_id = props.location.state.user
-    //   let current_cart = props.location.state.cart
-    let current_cart = props.location.state.cart == 1 ? props.location.state.cart[0] : props.location.state.cart.slice(-1)[0]
-
-    //   let [cart, setState] = useState(current_cart);
-    console.log(current_cart)
-    let totalPrice = current_cart.orders
-        .map((o) => o.product.price)
-        .reduce((a, b) => a + b, 0);
-
-
-
-    let purchased = () => {
+    state = {
+        current_cart: this.props.location.state.cart == 1 ? this.props.location.state.cart[0] : this.props.location.state.cart.slice(-1)[0]
+    }
+    purchased = (user_id) => {
         fetch("http://localhost:3000/carts", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -26,29 +16,56 @@ export default function Checkout(props) {
             }),
         })
             .then((res) => res.json())
-            .then((user) => props.history.push("/home", user.id));
+            .then((user) => this.props.history.push("/home", user.id));
     };
-    return (
 
+    removeOrder = (order) => {
+        fetch(`http://localhost:3000/carts/${this.state.current_cart.id}`,{
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                id: this.state.current_cart.id,
+                order: order
+            })
+        })
+        .then(res => res.json())
+        .then(user => (
+            this.setState({
+                current_cart: user.carts == 1 ? user.carts[0] : user.carts.slice(-1)[0]
+            })
+        ))
+    }
+
+    render(){
+    let user_id = this.props.location.state.user
+    let totalPrice = this.state.current_cart.orders.map((o) => o.product.price).reduce((a, b) => a + b, 0);
+
+    return (
         <div>
             <NavBar/>
             <div class="container">
                 <h2>Your Cart</h2>
-                <Cart cart={current_cart} orders={current_cart.orders} />
-                <h4>
-                    Cart
-          <span>
-                        <b>
-                            {props.location.state.cart.id}
-                        </b>
-                    </span>
-                </h4>
-                {current_cart.orders.map((order) => (
+                {this.state.current_cart.orders.map((order) => (
                     <p>
                         {order.product.name}
                         <span>${order.product.price}</span>
                     </p>
                 ))}
+                <EditCart cart={this.state.current_cart} orders={this.state.current_cart.orders} removeOrder={this.removeOrder}/>
+                <h4>
+                    Cart
+                <span>
+                        <b>
+                            {this.props.location.state.cart.id}
+                        </b>
+                    </span>
+                </h4>
+                {/* {this.state.current_cart.orders.map((order) => (
+                    <p>
+                        {order.product.name}
+                        <span>${order.product.price}</span>
+                    </p>
+                ))} */}
                 <hr />
                 <p>
                     Total{" "}
@@ -210,13 +227,14 @@ export default function Checkout(props) {
                         />
                         <label class="form-check-label" for="invalidCheck2">
                             Agree to terms and conditions
-            </label>
+                        </label>
                     </div>
                 </div>
-                <button class="btn btn-primary" type="submit">
+                <button class="btn btn-primary" type="submit" onClick={() => this.purchased(user_id)}>
                     Purchase
-        </button>
+                </button>
             </form>
         </div>
     )
+                }
 }

@@ -24,7 +24,6 @@ searchItem=(e)=>{
  
 // Isaac
 searchCategory=(searchTerm)=>{
-  // console.log(searchTerm)
 this.setState({
   searchCategory: searchTerm
 })
@@ -45,8 +44,6 @@ this.getItems(searchTerm)
 
 
   componentDidMount() {
-    // this.getItems()
-  
       fetch(
         "https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search?sponsored=1&limit=50&offset=0&store_id=3991&keyword=popular",
         {
@@ -71,9 +68,7 @@ this.getItems(searchTerm)
 
 
   getItems=(searchItem)=>{
-    // console.log(searchItem)
     fetch(
-
       `https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search?sponsored=1&limit=50&offset=0&store_id=3991&keyword=${searchItem}`,
       {
         method: "GET",
@@ -95,46 +90,43 @@ this.getItems(searchTerm)
       });
   }
 
+  // removeOrder = (order) => {
+  //   fetch(`http://localhost:3000/carts/${this.state.carts[0].id}`,{
+  //       method: 'PATCH',
+  //       headers: {'Content-Type': 'application/json'},
+  //       body: JSON.stringify({
+  //           id: this.state.carts[0].id,
+  //           order: order
+  //       })
+  //   })
+  //   .then(res => res.json())
+  //   .then(user => (
+  //     this.setState({carts: user.carts})
+  //   ))
+  // }
   
 
   render() {
-
-
-  //   let check = this.state.products.find( product => product.title.toLowerCase().startsWith(this.state.searchTerm.toLowerCase()))
   let filteredProducts=[]
     if(this.state.products){
-      // console.log(this.state.searchTerm)
-      // console.log(this.state.searchCategory)
       filteredProducts= this.state.products.filter( product => product.title.toLowerCase().startsWith(this.state.searchTerm.toLowerCase()))
     }else{
       filteredProducts= [{name: 'No product'}]
     }
-    // console.log(this.state.carts)
-    // console.log(this.props.location.state);
-    // console.log("user:", this.state.user)
-    // let user= this.props.location.state
   if(this.props.location.state != undefined){
     this.getUser()
   } 
 
     return (
       <div>
-        <NavBar searchItem={this.searchItem} searchCategory={this.searchCategory}
-        current_user_id={this.props.location.state} carts={this.state.carts}/>
-         {/* <Search searchItem={this.searchItem}
-        //  getItems={this.getItems}
-        /> */}
-         {/* <Category searchCategory={this.searchCategory}
-         /> */}
+        <NavBar 
+        searchItem={this.searchItem} 
+        searchCategory={this.searchCategory}
+        current_user_id={this.props.location.state} 
+        carts={this.state.carts}
+        // removeOrder={this.removeOrder}
+        />
         <ProductList products={filteredProducts}/>
-
-    {/* return ( */}
-      {/* <div></div> */}
-        <Link to={{pathname: "/cart", state: { current_user_id: this.state.current_user_id }}}>
-          View my cart
-        </Link>
-        {/* <ProductList products={this.state.products} /> */}
-
       </div>
     )
   }
