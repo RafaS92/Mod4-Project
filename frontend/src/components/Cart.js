@@ -1,17 +1,3 @@
-import React, { Component } from "react";
-import Order from "./Order";
-
-export default class Cart extends Component {
-  render() {
-    return (
-      <div className="container row row-cols-1 row-cols-md-4">
-        {this.props.cart.id}
-        {this.props.orders.map((order) => (
-          <div className="row-cols-1 mr-5">
-            <Order key={order.id} order={order} product={order.product} />
-          </div>
-        ))}
-      </div>
-    );
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:48eaa685827de21f5c5a0afde42d8f9ce2e1aa546a58c4024963d129b2813d08
+size 652

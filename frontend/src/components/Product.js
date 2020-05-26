@@ -1,21 +1,3 @@
-import React from "react";
-import Card from "./Card";
-
-export default function Product(props) {
-  let base = props.product.images[0].base_url;
-  let second = props.product.images[0].primary;
-  let image = base + second;
-
-  return (
-    
-    <div>
-      <Card
-        title={props.product.title}
-        description={props.product.description}
-        image={image}
-        price={props.product.price}
-      />
-    </div>
-  );
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b8d0c3a4868ba8449af930893412ac352f6cb26f2f28b16958226addebde3753
+size 627
