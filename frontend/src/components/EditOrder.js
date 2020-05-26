@@ -1,11 +1,3 @@
-import React from 'react';
-import CartProduct from './CartProduct';
-
-export default function EditOrder(props){
-    return(
-        <div>
-            <CartProduct product={props.product}/>
-            <button onClick={() => props.removeOrder(props.product)}>Remove</button>
-        </div>
-    )
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0738a1a7886676d3065c45a10d8e3851b21a670fb53bf044a091134f7f441611
+size 295

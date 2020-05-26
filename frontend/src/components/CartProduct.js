@@ -1,17 +1,3 @@
-import React, { Component } from "react";
-import CardCart from "./CardCart";
-
-export default function CartProduct(props) {
-  let image = props.product.image;
-
-  return (
-    <div>
-      <CardCart
-        title={props.product.title}
-        description={props.product.description}
-        image={image}
-        price={props.product.price}
-      />
-    </div>
-  );
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:34f5fcd40eb75fec57bd981971f189f868c306a36e2e0b57449f163e2dfe7ad4
+size 365

@@ -1,31 +1,3 @@
-import React from 'react'
-
-export class Category extends React.Component{
-
-//Isaac
-    state={
-       searchCategory:''
-    }
- 
-    inputs=(e)=>{
-    this.setState({
-        searchCategory: e.target.value
-    })
-    }
-onSubmit=()=>{
-    // console.log(this.state)
-    this.props.searchCategory(this.state.searchCategory)
-}
-
-    render(){
-        return(
-            <div>
-            <label> Category </label>
-            {/* <input onChange={(e)=>this.inputs(e)}/> */}
-            <button value="submit" onClick={()=> this.onSubmit()}/>
-            </div>
-        )
-    }
-
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:337c48baa747b578b6f552df2b5248db28e9a20340453c25cb321f85efb11cef
+size 576
