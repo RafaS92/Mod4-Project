@@ -10,7 +10,7 @@ import NavBar from "./components/NavBar";
 import Header from "./components/Header";
 import Checkout from "./components/Checkout";
 import PrevCarts from './components/PrevCart';
-import Location from './components/Location'
+// import Location from './components/Location'
 
 class App extends React.Component {
   
@@ -22,7 +22,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/login" component={Login} />
             <Route exact path= "/" component={Random} />
-            <Route exact path='/locations' component={Location}/>
+            {/* <Route exact path='/locations' component={Location}/> */}
             {/* <Route exact path="/cart" component={Header} /> */}
             <Route exact path="/cart" component={PrevCarts} />
             <Route exact path="/checkout" component={Checkout} />
